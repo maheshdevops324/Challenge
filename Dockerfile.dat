@@ -1,0 +1,11 @@
+FROM python:3
+
+ADD serveJson.py /
+ADD userdata.json /
+RUN mkdir -p /root/html
+RUN mkdir -p /html
+RUN cp userdata.json /root/html/.
+RUN cp userdata.json /html/.
+
+CMD [ "python", "./serveJson.py" ]
+EXPOSE 80
